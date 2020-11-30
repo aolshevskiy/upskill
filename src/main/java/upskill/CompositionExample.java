@@ -2,55 +2,42 @@ package upskill;
 
 public class CompositionExample {
 
-    interface A {
-        void a();
+    static class A {
+
     }
 
-    static class AImpl implements A {
+    static class B extends A {
 
-        @Override
-        public void a() {
+    }
+
+    static class C {
+        void m(A a) {
             System.out.println("a");
         }
-    }
-
-    interface B {
-        void b();
-    }
-
-    static class BImpl implements B {
-
-        @Override
-        public void b() {
+        void m(B b) {
             System.out.println("b");
         }
     }
 
-    static class C implements A, B {
-        private final A a;
-        private final B b;
-
-        C(A a, B b) {
-            this.a = a;
-            this.b = b;
+    static class D extends C {
+        void m(A a) {
+            System.out.println("da");
         }
-
-
-        @Override
-        public void a() {
-            a.a();
-        }
-
-        @Override
-        public void b() {
-            b.b();
+        void m(B a) {
+            System.out.println("db");
         }
     }
 
     public static void main(String[] args) {
-        C c = new C(new AImpl(), new BImpl());
+        C c = new C();
+        C d = new D();
 
-        c.a();
-        c.b();
+        B b = new B();
+        A a = b;
+
+        c.m(a);
+        c.m(b);
+        d.m(a);
+        d.m(b);
     }
 }
