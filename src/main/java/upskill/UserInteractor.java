@@ -2,7 +2,6 @@ package upskill;
 
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.util.Optional;
 import java.util.Scanner;
 
 public class UserInteractor {
