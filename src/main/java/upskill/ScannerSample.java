@@ -12,6 +12,6 @@ public class ScannerSample {
         int i = scanner.nextInt();
         String l = scanner.nextLine();
 
-        System.out.println(Arrays.asList("'" + i + "'", "'" + l + "'"));
+        System.out.println(Arrays.asList("'" + i + "'", "'" + l + "'")); // => ['10', '']
     }
 }
